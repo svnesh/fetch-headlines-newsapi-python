@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Get News{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { 
+        color: #336699;
+        border: 1px solid black;
+        padding-left: 1%;
+        padding-bottom: 1%; 
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<h2>For Headlines only</h2>
+<form action="#" method="POST">
+    <div class="important">
+        <div>
+            <p>Country:</p>
+        </div>
+        <div>
+            <select id="country" name="country">
+                <option value="" selected=True>(select)</option>
+                <option value="in">India</option>
+                <option value="us">UnitedStates</option>
+            </select><br><br>
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </div>    
+</form>
+
+{% endblock %}

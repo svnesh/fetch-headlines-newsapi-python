@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}News Page{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+    {% if status == 'ok' %}
+        <table style="width:100%">
+            <tr>
+                <th>Source</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Url</th>
+                <th>Url-to-Image</th>
+            </tr>
+            {% for row in range(articleLength) %}
+            <tr>
+                {% for col in range(5) %}
+                    {% if col > 2 %}
+                        <td><a href="{{res[col][row]}}">Click here</a></td>
+                    {% else %}
+                        <td>{{res[col][row]}}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No result received. Try again later.</p>
+    {% endif %}
+{% endblock %}
